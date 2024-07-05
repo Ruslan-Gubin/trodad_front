@@ -1,0 +1,73 @@
+@use "../../app/styles/common/var";
+@use "../../app/styles/common/function";
+
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.content {
+  text-align: center;
+}
+
+.notFoundTitle {
+  font-size: 200px;
+  font-weight: 600;
+  color: var(--color-red-text);
+  margin: 0;
+  padding: 0;
+  @media (width < 768px) {
+    font-size: function.calcSize(150, 200, 360, 768);
+  }
+}
+
+.notFoundSubTitle {
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--color-red-text);
+  padding-block-end: 60px;
+  @media (width < 768px) {
+    font-size: function.calcSize(22, 30, 360, 768);
+    padding-block-end: function.calcSize(20, 60, 360, 768);
+  }
+}
+
+.notFoundText {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.8);
+  max-width: 56%;
+  font-weight: 600;
+  line-height: 22px;
+  padding-block-end: 4px;
+  @media (width < 768px) {
+    font-size: function.calcSize(14, 17, 360, 768);
+    max-width: function.calcSize(250, 377, 360, 768);
+    padding-block-end: function.calcSize(10, 4, 360, 768);
+  }
+}
+
+.linkText {
+  font-weight: 600;
+  font-size: 1.2rem;
+  @media (width < 768px) {
+    font-size: function.calcSize(14, 17, 360, 768);
+  }
+}
+.linkGoHome {
+  color: var.$bg-header;
+  letter-spacing: 0.5px;
+  padding-inline-start: 5px;
+  &:hover {
+    text-decoration: underline;
+  }
+  @media (width < 768px) {
+    font-size: function.calcSize(14, 17, 360, 768);
+  }
+}

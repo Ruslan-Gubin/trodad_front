@@ -1,0 +1,176 @@
+@use "../../../app/styles/common/function";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100svw;
+  z-index: 100;
+  position: fixed;
+  scroll-behavior: smooth;
+  background-color: white;
+  @media (max-width: 768px) {
+    height: function.calcSize(65, 98, 360, 768);
+  }
+  // border-bottom: 1px solid black;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.logoImg {
+  width: function.calcSize(227, 289, 768, 1920);
+  height: function.calcSize(50, 64, 768, 1920);
+  object-fit: cover;
+  @media (max-width: 768px) {
+    width: function.calcSize(147, 227, 360, 768);
+    height: function.calcSize(33, 50, 360, 768);
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    column-gap: function.calcSize(5, 16, 360, 768);
+  }
+}
+.navLink {
+  color: #272728;
+  transition: color 0.3s ease;
+font-size: 12px;
+ 
+  &:hover {
+    transition: color 0.3s ease;
+    color: red;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 10px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    font-size: function.calcSize(14, 20, 360, 768);
+  }
+}
+
+.buregerSvg {
+  width: 40px;
+  height: 33px;
+  display: none;
+
+  @media (max-width: 700px) {
+    display: block;
+  }
+}
+
+.mobileMenu {
+  display: none;
+  z-index: 3;
+  @media (max-width: 700px) {
+    display: flex;
+  }
+
+  background-color: white;
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  top: 0px;
+  left: 1000px;
+  transition: left 0.4s ease;
+}
+
+.mobileMenuOpen {
+  transition: left 0.4s ease;
+  left: 0px;
+}
+
+.menuContent {
+  padding-top: 105px;
+  padding-left: 16px;
+  height: 100%;
+  position: relative;
+}
+
+.navMenuList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+
+  @media (max-width: 768px) {
+    column-gap: function.calcSize(5, 16, 360, 768);
+  }
+}
+
+.navLinkMenu {
+  font-size: 28px;
+
+  color: #272728;
+  transition: color 0.3s ease;
+
+  &:hover {
+    transition: color 0.3s ease;
+    color: red;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 10px;
+    cursor: pointer;
+  }
+}
+
+.contactsList {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  font-size: 28px;
+}
+.contectItem {
+  color: #272728;
+}
+.socialLinkList {
+  display: flex;
+  column-gap: 16px;
+}
+.socialLinkListItem {
+  width: 28px;
+  height: 28px;
+}
+
+.menuRectSmall {
+  width: 62px;
+  height: 62px;
+  position: absolute;
+  bottom: 190px;
+  left: function.calcSize(259, 530, 360, 700);
+}
+.menuRectMedium {
+  width: 124px;
+  height: 130px;
+  position: absolute;
+  bottom: 49px;
+  left: function.calcSize(64, 380, 360, 700);
+}
+.menuRectLarge {
+  width: 269px;
+  height: 281px;
+  position: absolute;
+  bottom: -91px;
+
+  left: function.calcSize(188, 530, 360, 700);
+}
+.leftSideList {
+  display: flex;
+  column-gap: 15px;
+}

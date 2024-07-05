@@ -1,0 +1,35 @@
+@use '../../../app/styles/common/var';
+
+.menuItem {
+  display: flex;
+  align-items: center;
+
+  border-radius: 4px;
+  padding: 12px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var.$side-menu-default;
+  font-weight: 500;
+  justify-content: space-between;
+  text-wrap: balance;
+  line-height: normal;
+  &:hover {
+    background-color: #5665d208;
+  }
+}
+
+.menuItemActive {
+  color: var.$side-menu-active;
+}
+
+.linkLeftSide {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.childrenMenuList {
+  background-color: #5664D21A;
+  padding: 8px 0 8px 16px;
+  border-radius: 5px;
+}

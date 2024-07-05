@@ -1,0 +1,112 @@
+@use "../../../app/styles/common/function";
+
+.footer {
+background-color: #353945;
+padding-block: 80px 50px;
+}
+.contaner {
+  width: 1300px;
+  margin: 0 auto;
+  display: flex;
+}
+.leftSide{
+  padding-right: 100px;
+}
+.logo {
+  width: 131px;
+  height: 31px;
+
+}
+.subTitle {
+  color: #ECECEC;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19.75px;
+  padding-block: 50px;
+  max-width: 321px;
+
+
+}
+.phoneContainer {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+}
+.phone {
+  background-color: #21232A;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 5px;
+  border-bottom: 2px solid #B52020;
+}
+.textOr{
+  color: #ECECEC;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.navsList {
+  display: flex;
+  column-gap: 120px;
+  padding-right: 120px;
+}
+.navsItem {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+.navsTitle {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 18px;
+}
+.navsChildrenList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 11px;
+
+}
+.childrenItem {
+  font-size: 14px;
+  color: #AEAEAE;
+
+}
+.contacts {
+  display: flex;
+  flex-direction: column;
+
+}
+.email {
+color: #999999;
+font-size: 14px;
+font-weight: 400;
+padding-top: 18px;
+padding-bottom: 11px;
+}
+.address {
+color: #999999;
+font-size: 14px;
+font-weight: 400;
+max-width: 137px;
+line-height: 21px;
+}
+.copyraitRoot{
+  background-color: #272B38;
+  padding-top: 17px;
+  padding-bottom: 18px;
+}
+.copyraitContainer {
+  display: flex;
+  align-items: center;
+  width: 1300px;
+  margin: 0 auto;
+  column-gap: 403px;
+}
+.copyraitText {
+  color: #7E7E7E;
+  font-size: 14px;
+  font-weight: 400;
+
+}

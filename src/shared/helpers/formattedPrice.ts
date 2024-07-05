@@ -1,0 +1,1 @@
+export const formattedPrice = (price: number) => `${String(price)}.00 ₽`;

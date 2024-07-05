@@ -1,0 +1,53 @@
+@use "../../../app/styles/common/function";
+
+.label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: #272728;
+}
+
+.labelText {
+  font-size: 16px;
+  position: absolute;
+  top: -20px;
+  color: #898e9f;
+  @media (max-width: 768px) {
+    font-size: function.calcSize(12, 16, 360, 768);
+    top: function.calcSize(-15, -20, 360, 768);
+  }
+}
+
+.labelTextError {
+  color: var(--color-red-text);
+}
+
+.input {
+  border-bottom: 1px solid #272728;
+  font-size: 20px;
+  padding-bottom: 12px;
+  display: block;
+  align-items: center;
+  padding-top: 6px;
+  height: 26px;
+  color: #272728;
+  padding-right: 35px;
+  @media (max-width: 768px) {
+    font-size: function.calcSize(14, 20, 360, 768);
+    padding-right: function.calcSize(26, 35, 360, 768);
+  }
+}
+
+.errorInput {
+  position: absolute;
+  right: 0px;
+  top: -3px;
+  width: 24px;
+  height: 24px;
+  color: #b02323;
+  @media (max-width: 768px) {
+    width: function.calcSize(18, 24, 360, 768);
+    height: function.calcSize(18, 24, 360, 768);
+    top: function.calcSize(0, -3, 360, 768);
+  }
+}

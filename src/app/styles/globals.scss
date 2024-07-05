@@ -1,0 +1,31 @@
+@forward "common/libs";
+@forward "common/fonts/fonts";
+@use "common/function";
+
+:root {
+  color-scheme: light;
+  --color-red-text: #ea2935;
+  --color-main-text: #272728;
+  --font-size-title: 36px;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+  color: #272728;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+    border-radius: 10px;
+  }
+}
+
+.dark {
+  --color-red-text: #ffffff;
+  color-scheme: dark;
+}

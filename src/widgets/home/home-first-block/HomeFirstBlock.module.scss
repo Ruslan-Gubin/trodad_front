@@ -1,0 +1,225 @@
+@use "../../../app/styles/common/function";
+
+.root {
+  padding-top: function.calcSize(98, 135, 768, 1920);
+  @media (max-width: 768px) {
+    padding-top: function.calcSize(65, 98, 360, 768);
+  }
+}
+.blockContent {
+  display: flex;
+  // position: relative;
+  // overflow: hidden;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  // background-color: orange;
+  // column-gap: 144px;
+  justify-content: space-between;
+}
+
+.leftSide {
+  height: 500px;
+  width: 506px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 55px;
+  color: #2F2F2F;
+  line-height: 64px;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 20px;
+}
+.description {
+  color: #2F2F2F;
+  font-size: 14px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  strong {
+    color: #303030;
+    padding-right: 5px;
+    font-weight: 600;
+  }
+
+}
+.textWrapper {
+    padding-bottom: 53px;
+}
+.button {
+  width: 134px;
+  height: 43px;
+  color: white;
+  border-radius: 100px;
+  background-color: #EE272E;
+  font-weight: 600;
+  margin-bottom: 36px;
+}
+.leftSideFooter {
+  display: flex;
+
+}
+.ecologPng {
+  width: 101px;
+  height: 88px;
+}
+.leftSideFooterDescription {
+  padding-top: 20px;
+  max-width: 272px;
+  line-height: 16px;
+  color: #515151;
+  text-wrap: stable;
+  font-weight: 400;
+  strong {
+    font-weight: 600;
+  }
+}
+
+.leftSideFooterDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.footer {
+  background-color: #D25358;
+  height: 153px;
+  display: flex;
+  column-gap: 226px;
+}
+
+.footerNavigationBlock {
+display: flex;
+column-gap: 77px;
+align-items: center;
+  position: relative;
+  top: -20px;
+  justify-content: space-between;
+}
+.footerContentWrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1300px;
+  min-width: 1300px;
+ margin: 0 auto; 
+}
+
+.slidPrevBtn {
+  background-color: rgba(255, 255, 255, 0);
+  opacity: 0.6;
+}
+.slidPrevBtnNext {
+  background-color: rgba(255, 255, 255, 0);
+  transform: rotate(180deg);
+}
+.buttonSliderContainer {
+  display: flex;
+  column-gap: 25px;
+  
+}
+.sliderCountContainer {
+  display: flex;
+  column-gap: 20px;
+  color: white;
+  font-size: 16px;
+}
+
+.fotoSliderList {
+display: flex;
+column-gap: 20px;
+position: relative;
+top: -13px;
+}
+
+.sliderImg {
+width: 124px;
+height: 124px;
+max-width: 124px;
+min-width: 124px;
+object-fit: cover;
+min-height: 124px;
+min-width: 124px;
+}
+.contentCenter {
+  display: flex;
+  flex-direction: column;
+  row-gap: 26px;
+  color: white;
+  max-width: function.calcSize(485, 643, 768, 1920);
+  @media (max-width: 768px) {
+    max-width: function.calcSize(320, 485, 360, 768);
+    row-gap: function.calcSize(18, 26, 360, 768);
+  }
+}
+.contentCenterTitle {
+  font-size: 48px;
+  @media (max-width: 768px) {
+    font-size: function.calcSize(28, 48, 360, 768);
+  }
+}
+.contentCenterDescription {
+  font-size: 24px;
+  line-height: normal;
+  @media (max-width: 768px) {
+    font-size: function.calcSize(16, 24, 360, 768);
+  }
+}
+
+.contentCenterLinkList {
+  display: flex;
+  gap: 40px;
+  @media (max-width: 1340px) {
+    flex-direction: column;
+  }
+  @media (max-width: 1000px) {
+    flex-direction: row;
+  }
+  @media (max-width: 768px) {
+    gap: function.calcSize(10, 40, 360, 768);
+  }
+}
+.contentCenterLinkItem {
+  width: 198px;
+  height: 63px;
+  cursor: pointer;
+  z-index: 2;
+  @media (max-width: 768px) {
+    width: function.calcSize(140, 198, 360, 768);
+    height: function.calcSize(44, 63, 360, 768);
+  }
+}
+
+.rightSide {
+  // flex: 1;
+}
+
+.backgrounddemoMobileImg {
+  width: 590px;
+  height: 466px;
+  object-fit: cover;
+
+}
+
+.demoMobileImg {
+  min-width: 1165px;
+  min-height: 935px;
+  object-fit: cover;
+  position: absolute;
+  top: -90px;
+  left: -204px;
+  left: 755px;
+
+  min-width: function.calcSize(1001, 1165, 768, 1920);
+  min-height: function.calcSize(686, 935, 768, 1920);
+  left: function.calcSize(-185, 755, 768, 1920);
+  top: function.calcSize(370, -90, 768, 1920);
+
+  @media (max-width: 768px) {
+    min-width: function.calcSize(570, 1001, 360, 768);
+    min-height: function.calcSize(540, 686, 360, 768);
+    left: function.calcSize(-152, -185, 360, 768);
+    top: function.calcSize(220, 370, 360, 768);
+  }
+}

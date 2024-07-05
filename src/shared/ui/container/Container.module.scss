@@ -1,0 +1,15 @@
+@use "../../../app/styles/common/function";
+
+.root {
+  width: 100%;
+
+  padding-inline: function.calcSize(124, 220, 1728, 1920);
+
+  @media (max-width: 1728px) {
+    padding-inline: function.calcSize(24, 124, 768, 1728);
+  }
+  @media (max-width: 768px) {
+    padding-inline: function.calcSize(16, 24, 360, 768);
+  }
+ 
+}
