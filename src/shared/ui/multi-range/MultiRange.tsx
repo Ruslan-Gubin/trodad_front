@@ -44,14 +44,22 @@ const MultiRange = ({ step, max, min, firstValeu, secondValeu, changeFirstValue,
     max={max} 
     min={min} 
     value={firstValeu} 
-    onChange={changeFirstValue} 
+    onClick={() => false}
+    onChange={(e) => {
+      e.stopPropagation();
+      changeFirstValue(e);
+    }} 
     />
     <input 
     className={styles.range} 
     type="range" step={step} 
     max={max} min={min} 
     value={secondValeu} 
-    onChange={changeSecondValue} 
+    onClick={() => false}
+    onChange={(e) => {
+      e.stopPropagation();
+      changeSecondValue(e);
+    }} 
     />
       <div 
       style={{

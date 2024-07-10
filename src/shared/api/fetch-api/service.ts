@@ -47,7 +47,7 @@ export class FetchService {
     params,
   }: {
     url: string;
-    params?: Record<string, string>;
+    params?: Record<string, string | any>;
   }) {
     return baseFetch({ url, method: "GET", params });
   }

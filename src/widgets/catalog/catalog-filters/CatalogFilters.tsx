@@ -1,55 +1,39 @@
-import { useState } from "react";
 import { CategoryCheckSvg } from "@/shared/svg/CategoryCheckSvg";
 import { MultiRange } from "@/shared/ui/multi-range/MultiRange";
+import type { CategoryModel } from "@/shared/types/CategoryType";
+import { filterProductController, FilterProductStore } from "@/shared/service/filter-product";
 
 import styles from "./CatalogFilters.module.scss";
 
-const mockCategory = ['Круглые печати', 'Прямоугольные печати', 'Квадратные штампы', 'Нумераторы', 'Карманные штампы', 'Датеры', 'Овальные печати', 'Серия оснасток Professional', 'Самонаборные печати и штампы', 'Сургучная печать', 'Штемпельные подушки', 'Краска для штампов и печатей', 'Расходные материалы', 'Авторучки со штампом Goldring']
 
+type Props = {
+  categorys: CategoryModel[];
+}
 
-const CatalogFilters = () => {
-  const [checkedList, setCheckedLis] = useState<string[]>([]);
-  const [priceRangeFirstValue, setPriceRangeFirstValue] = useState<number>(250);
-  const [priceRangeSecondValue, setPriceRangeSecondValue] = useState<number>(4500);
+const CatalogFilters = ({ categorys }: Props) => {
+  const filterCategorys = FilterProductStore(store => store.categoryIds);
+  const minPrice = FilterProductStore(store => store.priceMinValue);
+  const maxPrice = FilterProductStore(store => store.priceMaxValue);
+  const minDiameter = FilterProductStore(store => store.diameterMinValue);
+  const maxDiameter = FilterProductStore(store => store.diameterMaxValue);
 
-  const [diameterRangeFirstValue, setDiameterRangeFirstValue] = useState<number>(20);
-  const [diameterRangeSecondValue, setDiameterRangeSecondValue] = useState<number>(100);
+  const handleSelectCategory = (category: string) => filterProductController.selectCategory(category);
 
-  const handleClickChecked = (category: string) => {
-    const checkCatogory = checkedList.includes(category);
-    if (!checkCatogory) {
-      setCheckedLis(prev => ([...prev, category]));
-    } else {
-      setCheckedLis(prev => prev.filter(item => item !== category));
-    }
-  }
 
   const handleChangePriceFirsRange = (e: any) => {
-    if (e.target.value >= priceRangeSecondValue - 250) {
-      setPriceRangeSecondValue(Number(e.target.value) + 250)
-    };
-    setPriceRangeFirstValue(e.target.value);
+    filterProductController.setMinPrice(Number(e.target.value));
   }
 
   const handleChangePriceSecondRange = (e: any) => {
-    if (e.target.value <= priceRangeFirstValue + 250) {
-      setPriceRangeFirstValue(Number(e.target.value) - 250)
-    };
-    setPriceRangeSecondValue(e.target.value);
+    filterProductController.setMAxPrice(Number(e.target.value));
   }
 
   const handleChangeDiameterFirsRange = (e: any) => {
-    if (e.target.value >= diameterRangeSecondValue - 5) {
-      setDiameterRangeSecondValue(Number(e.target.value) + 5)
-    };
-    setDiameterRangeFirstValue(e.target.value);
+    filterProductController.setMinDiameter(Number(e.target.value));
   }
 
   const handleChangeDiameterSecondRange = (e: any) => {
-    if (e.target.value <= diameterRangeFirstValue + 5) {
-      setDiameterRangeFirstValue(Number(e.target.value) - 5)
-    };
-    setDiameterRangeSecondValue(e.target.value);
+    filterProductController.setMAxDiameter(Number(e.target.value));
   }
 
   
@@ -61,8 +45,8 @@ const CatalogFilters = () => {
     step={50}
     max={6000}
     min={250}
-    firstValeu={priceRangeFirstValue}
-    secondValeu={priceRangeSecondValue}
+    firstValeu={minPrice}
+    secondValeu={maxPrice}
     changeFirstValue={handleChangePriceFirsRange}
     changeSecondValue={handleChangePriceSecondRange}
     title="По ценам"
@@ -72,8 +56,8 @@ const CatalogFilters = () => {
     step={1}
     max={150}
     min={10}
-    firstValeu={diameterRangeFirstValue}
-    secondValeu={diameterRangeSecondValue}
+    firstValeu={minDiameter}
+    secondValeu={maxDiameter}
     changeFirstValue={handleChangeDiameterFirsRange}
     changeSecondValue={handleChangeDiameterSecondRange}
     title="По диаметру (круглые штампы)"
@@ -93,10 +77,10 @@ const CatalogFilters = () => {
 
     <h2 className={styles.categoryTitle}>Категории</h2>
     <ul className={styles.categoryList}>
-      {mockCategory.map(item => 
-      <li key={item} className={styles.categoryItem} onClick={() => handleClickChecked(item)}>
-        <CategoryCheckSvg active={checkedList.includes(item)} />
-        <p className={styles.categoryName}>{item}</p>
+      {categorys.map(item => 
+      <li key={item._id} className={styles.categoryItem} onClick={() => handleSelectCategory(item._id)}>
+        <CategoryCheckSvg active={filterCategorys.includes(item._id)} />
+        <p className={styles.categoryName}>{item.name}</p>
       </li>
       )}
     </ul>

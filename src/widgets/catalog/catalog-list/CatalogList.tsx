@@ -1,71 +1,63 @@
-import styles from "./CatalogList.module.scss";
-import mockImg from "../../../../public/assets/images/mockImg.png";
+import { memo } from "react";
 import { NoLikeSvg } from "@/shared/svg/NoLikeSvg";
 import { LikeSvg } from "@/shared/svg/LikeSvg";
-import { ProducColorListSvg } from "@/shared/svg/ProducColorListSvg";
 import { BuyProcutSvg } from "@/shared/svg/BuyProcutSvg";
-import { layoutController, layoutStore, LocalStorage } from "@/shared";
+import { layoutController, layoutStore } from "@/shared";
+import { loadingStore } from "@/shared/service/loading";
+import type { ProductModel } from "@/shared/types/ProductsType";
+import mockImg from "../../../../public/assets/images/mockImg.png";
 
-const mockProductsList = [
-  {
-    _id: "1",
-    img: mockImg,
-    title: "Рельефная печать",
-    desc: "Размер: Max. 41мм* 24мм",
-    price: "3500 с.",
-    code: "5200",
-  },
-  {
-    _id: "2",
-    img: mockImg,
-    title: "Рельефная печать",
-    desc: "Размер: Max. 41мм* 24мм",
-    price: "3500 с.",
-    code: "5200",
-  },
-  {
-    _id: "3",
-    img: mockImg,
-    title: "Рельефная печать",
-    desc: "Размер: Max. 41мм* 24мм",
-    price: "3500 с.",
-    code: "5200",
-  },
-  {
-    _id: "4",
-    img: mockImg,
-    title: "Рельефная печать",
-    desc: "Размер: Max. 41мм* 24мм",
-    price: "3500 с.",
-    code: "5200",
-  },
-  {
-    _id: "5",
-    img: mockImg,
-    title: "Рельефная печать",
-    desc: "Размер: Max. 41мм* 24мм",
-    price: "3500 с.",
-    code: "5200",
-  },
-];
+import styles from "./CatalogList.module.scss";
+import { CONFIG_APP } from "@/shared/config";
 
-const CatalogList = () => {
+const colorTranslate = {
+  красный: "red",
+  бирюзовый: "turquoise",
+  серый: "grey",
+  синий: "blue",
+  черный: "black",
+  оранжевый: "orange",
+};
+
+type Props = {
+  products: ProductModel[];
+};
+
+const CatalogList =  memo(({ products }: Props) => {
   const likesArr = layoutStore((store) => store.likesArray);
+  const loadingProduct = loadingStore((store) => store.fetchloading);
 
   const handleClickLike = (id: string) => layoutController.updateLike(id);
   const getIncludeLikes = (id: string) => likesArr.includes(id);
 
+  const getColorArray = (productColors: string[]) => {
+    const result: string[] = [];
+    productColors.forEach((item) => {
+      if (Object.hasOwn(colorTranslate, item)) {
+        //@ts-ignore
+        result.push(colorTranslate[item]);
+      }
+    });
+    return result;
+  };
+
   return (
-    <ul className={styles.catalogList}>
-      {mockProductsList.map((product) => (
+    <ul
+      className={
+        loadingProduct
+          ? `${styles.catalogList} ${styles.catalogListOpasity}`
+          : styles.catalogList
+      }
+    >
+      {products.map((product) => (
         <li key={product._id} className={styles.productItem}>
           <header className={styles.productHeader}>
             <img
-              src={product.img}
+              src={product.imagePatch ? `${CONFIG_APP.API_ENDPOINT}${product.imagePatch}` : mockImg}
               alt="Product img"
               className={styles.productImg}
             />
-            <div className={styles.codeHeader}>{product.code}</div>
+            <div className={styles.codeHeader}>{product.article}</div>
             <div className={styles.headrContainer}>
               {!getIncludeLikes(product._id) ? (
                 <button
@@ -85,15 +77,23 @@ const CatalogList = () => {
             </div>
           </header>
           <div className={styles.content}>
-            <h2 className={styles.productTilte}>{product.title}</h2>
+            <h2 className={styles.productTilte}>{product.name}</h2>
 
             <div className={styles.productDescription}>
-              <p className={styles.descriptionTilte}>{product.desc}</p>
-              <ProducColorListSvg />
+              <p className={styles.descriptionTilte}>Размер:{product.size}</p>
+              <ul className={styles.colorList}>
+                {getColorArray(product.color).map((color) => (
+                  <li
+                    key={color}
+                    className={styles.color}
+                    style={{ backgroundColor: color }}
+                  ></li>
+                ))}
+              </ul>
             </div>
 
             <footer className={styles.footer}>
-              <span className={styles.footerCost}>{product.price}</span>
+              <span className={styles.footerCost}>{"3500 с."}</span>
 
               <BuyProcutSvg />
             </footer>
@@ -102,6 +102,6 @@ const CatalogList = () => {
       ))}
     </ul>
   );
-};
+});
 
 export { CatalogList };
