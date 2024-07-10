@@ -1,0 +1,6 @@
+@use "../../../app/styles/common/function";
+
+.root {
+  width: function.calcSize(120, 152, 360, 1920);
+  height: function.calcSize(38, 44, 360, 1920);
+}

@@ -19,6 +19,10 @@ export class LayoutController {
     return this.layoutAdapter.setInitContacts(contacts);
   }
 
+  public updateLike(id: string) {
+    return this.layoutAdapter.updateLike(id);
+  }
+
 }
 
 export const layoutController = new LayoutController();

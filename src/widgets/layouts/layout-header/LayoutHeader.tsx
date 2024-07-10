@@ -20,8 +20,8 @@ import { ProfileSvg } from "./Profile";
 import { BasketSvg } from "./BasketSvg";
 
 const navList = [
-  { patch: "/#advantages", title: "Главная" },
-  { patch: "/#brands", title: "Каталог" },
+  { patch: "/", title: "Главная" },
+  { patch: "/catalog", title: "Каталог" },
   { patch: "/#reviews", title: "О компании" },
   { patch: "/#contacts", title: "Акции" },
   { patch: "/#contacts", title: "Новости" },
@@ -47,9 +47,9 @@ const LayoutHeader = () => {
               <ul className={styles.navList}>
                 {navList.map((item) => (
                   <li key={item.title}>
-                    <a className={styles.navLink} href={`${item.patch}`}>
+                    <Link to={item.patch} className={styles.navLink} >
                       {item.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

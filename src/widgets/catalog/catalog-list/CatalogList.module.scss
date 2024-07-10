@@ -1,0 +1,91 @@
+@use "../../../app/styles/common/function";
+
+.catalogList {
+  gap: 23px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding-bottom: 30px;
+  grid-template-rows: repead(3, 320px);
+}
+
+.productItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  width: 215px;
+  min-height: 320px;
+  max-height: 320px;
+  border-radius: 10px;
+
+  opacity: 0px;
+  border: 0.75px solid var(--grey, rgba(236, 236, 236, 1));
+}
+.productHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-bottom: 21px;
+}
+.codeHeader {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  color: rgba(238, 87, 92, 1);
+  font-family: Caros Soft;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17.25px;
+}
+.likeBtn {
+  background-color: rgba(255, 255, 255, 0);
+}
+.headrContainer {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+.productImg {
+  object-fit: cover;
+  max-width: 160px;
+  max-height: 158px;
+}
+
+.content {
+  padding-inline: 15px;
+  padding-bottom: 15px;
+}
+.productTilte {
+  font-family: Caros Soft;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.78px;
+  color: rgba(47, 47, 47, 1);
+  padding-bottom: 21px;
+}
+.productDescription {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  padding-bottom: 22px;
+}
+.descriptionTilte {
+  color: rgba(134, 134, 134, 1);
+  font-family: Caros Soft;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footerCost {
+  font-family: Caros Soft;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  color: rgba(47, 47, 47, 1);
+}

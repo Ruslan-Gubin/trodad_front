@@ -1,0 +1,54 @@
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(47, 47, 47, 1);
+  position: relative;
+
+  font-family: Caros Soft;
+font-size: 15px;
+font-weight: 400;
+}
+
+.paginationPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: currentColor;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  // opacity: 0.4;
+}
+
+.paginationPageWhite {
+  cursor: default;
+  opacity: 1;
+  color: white;
+  background-color: rgba(238, 87, 92, 1);
+  border-radius: 50%;
+  font-weight: 400;
+}
+
+.paginationButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0);
+  margin-right: 8px;
+  color: currentColor;
+  position: relative;
+  top: 2px;
+}
+
+.paginationButton:nth-last-child(1) {
+  margin-right: 0px;
+}
+
+.paginationButtonOpasit {
+  opacity: 0.6;
+  cursor: default;
+  color: currentColor;
+}

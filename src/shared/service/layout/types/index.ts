@@ -12,4 +12,5 @@ export type ContactsType = {
 export type LayoutInitState = {
   sideBarMenuState: boolean;
   contacts: ContactsType;
+  likesArray: string[];
 };

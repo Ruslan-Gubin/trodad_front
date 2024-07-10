@@ -1,0 +1,80 @@
+@use "../../app/styles/common/function";
+
+.root {
+  padding-top: function.calcSize(81, 162, 360, 1920);
+  padding-bottom: 261px;
+}
+.container {
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: Caros Soft;
+  font-size: function.calcSize(35, 50, 360, 1920);
+  font-weight: 500;
+  line-height: 45px;
+  margin: 0;
+  padding-bottom: function.calcSize(20, 30, 360, 1920);
+}
+.titleLine {
+  margin-bottom: function.calcSize(0, 30, 360, 1920);
+  width: 100%;
+  height: 2px;
+
+  background-color: rgba(236, 236, 236, 1);
+  @media (width < 500px) {
+    display: none;
+  }
+}
+.sortingLine {
+  display: flex;
+  column-gap: 30px;
+  display: grid;
+  grid-template-columns: 152px 1fr;
+  padding-bottom: function.calcSize(20, 30, 360, 1920);
+}
+
+.inputWrapper {
+  position: relative;
+width: 100%;
+}
+.searchIconContainer {
+  position: absolute;
+  top: 15px;
+  left: 12px;
+}
+
+.searchInput {
+height: 44px;
+width: 100%;
+top: 267px;
+left: 282px;
+padding: 8px 10px 8px 10px;
+padding-left: 38px;
+gap: 10px;
+border-radius: 24px;
+border: 1px 0px 0px 0px;
+opacity: 0px;
+
+border: 1px solid var(--grey, rgba(236, 236, 236, 1))
+
+
+
+}
+.searchInput::placeholder {
+  color: rgba(166, 166, 166, 1);
+}
+.content {
+  display: flex;
+  align-items: flex-start;
+  column-gap: function.calcSize(0, 25, 360, 1920);
+}
+
+.paginationWrapper {
+display: flex;
+justify-content: center;
+}

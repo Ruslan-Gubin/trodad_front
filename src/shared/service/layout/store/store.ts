@@ -3,6 +3,7 @@ import type { LayoutInitState } from "../types";
 
 const initState: LayoutInitState = {
   sideBarMenuState: false,
+  likesArray: [],
   contacts: {
     phone: "",
     email: "",

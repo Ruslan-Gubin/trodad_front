@@ -1,0 +1,90 @@
+.rangeItem {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(241, 241, 241, 1);
+  overflow: hidden;
+}
+
+.rangeValue {
+  display: flex;
+  column-gap: 101px;
+  color: rgba(0, 0, 0, 1);
+  font-family: Caros Soft;
+  font-size: 12px;
+  font-weight: 400;
+
+  padding-bottom: 15px;
+}
+
+.rangeLine {
+  width: 246px;
+  position: relative;
+}
+.priceProggress {
+  height: 3px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(238, 87, 92, 1);
+}
+.rangeInput {
+  width: 246px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rangeTitle {
+  font-family: Caros Soft;
+  font-size: 12px;
+  font-weight: 400;
+  padding-bottom: 20px;
+  color: rgba(134, 134, 134, 1);
+}
+
+.range {
+  width: 246px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &::-webkit-slider-runnable-track {
+    height: 3px;
+    background: rgba(241, 241, 241, 1);
+  }
+
+  &::-webkit-slider-thumb {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -9px;
+    -webkit-appearance: none;
+    background-color: rgba(238, 87, 92, 1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 10;
+  }
+
+  &::-moz-range-track {
+    height: 2px;
+    background: #c4c4c7;
+  }
+
+  &::-moz-range-thumb {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: -10px;
+    background-color: rgba(238, 87, 92, 1);
+  }
+}

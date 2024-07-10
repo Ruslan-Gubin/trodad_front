@@ -13,7 +13,7 @@ export const routerApp = createBrowserRouter(
     <>
       <Route path={`${NAV.MAIN}`} element={<MainLayout />}>
         <Route index element={<page.HomePage />} />
-        <Route path={NAV.AGREMENT} element={<page.AgrementPage />} />
+        <Route path={NAV.CATALOG} element={<page.CatalogLazyPage />} />
       </Route>
       <Route path={"*"} element={<NotFoundPage />} />
     </>

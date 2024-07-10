@@ -17,6 +17,7 @@ import { BtnPrevSvg } from "./BtnPrevSvg";
 import styles from "./HomeFirstBlock.module.scss";
 
 const HomeFirstBlock = () => {
+  
 
   return (
     <section className={styles.root}>
@@ -32,7 +33,9 @@ const HomeFirstBlock = () => {
               на территории Кыргызстана с 2006 года.
             </p>
           </div>
+          <Link to={'/catalog'}>
           <button className={styles.button}>Каталог</button>
+          </Link>
           <div className={styles.leftSideFooter}>
             <img
               className={styles.ecologPng}

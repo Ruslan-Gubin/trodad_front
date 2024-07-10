@@ -16,4 +16,15 @@ export class LayoutAdapter {
   public setInitContacts(contacts: ContactsType) {
     layoutStore.setState({ contacts })
   }
+
+  public updateLike(id: string) {
+    const likeArr = layoutStore.getState().likesArray;
+
+    if (likeArr.includes(id)) {
+      layoutStore.setState({ likesArray: likeArr.filter(item => item !== id) })
+    } else {
+      layoutStore.setState({ likesArray: [...likeArr, id] })
+    }
+  }
+  
 }
